@@ -1,0 +1,15 @@
+target/
+*.jar
+*.war
+*.class
+application-local.yml
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+*.pidb.meta
+__pycache__/
+*.pyc
+venv/
+.DS_Store
+Thumbs.db
