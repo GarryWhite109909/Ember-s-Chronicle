@@ -41,7 +41,7 @@ Ember's Chronicle 是一款以湖湘文化为题材的3D游戏，结合TripoAI A
 - **AI服务**: TripoAI SDK
 
 ### 前端技术栈
-- **游戏引擎**: Unity 6000.3.2f1
+- **游戏引擎**: Unity 6000.3.2f1（暂定，最终版本由小明决定）
 - **叙事引擎**: Ink Unity Integration
 - **输入系统**: Unity Input System 1.17.0
 - **可视化调试**: Odin Inspector
