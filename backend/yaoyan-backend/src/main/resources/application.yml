@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: yaoyan-backend
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yaoyan?useSSL=false&serverTimezone=UTC
+    username: root
+    password: ENC(加密后的密码)
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  redis:
+    host: localhost
+    port: 6379
+
+server:
+  port: 8080
+
+trioai:
+  api-key: ENC(加密后的key)
+  base-url: https://api.tripo3d.ai/v1
+
+jasypt:
+  encryptor:
+    password: ${JASYPT_PASSWORD:yaoyan2025}
