@@ -1,10 +1,27 @@
 # Ember's Chronicle
 
+------
+
 ## 📖 项目简介
 
 Ember's Chronicle 是一款以湖湘文化为题材的3D游戏，结合TripoAI AI生成技术，为玩家提供沉浸式的文化体验。
 
-**项目特色：**
+### **剧情简介：**
+
+- **你从灰烬中醒来，不知自己是器，是魂，还是被遗忘的回声。**
+- 长沙的地窖里，三件残物静候你的选择；
+   湘江的废墟上，哑女称你为“影子”；
+   渡口的老船夫问：“过江的，得带自己的影子——你有吗？”
+- 你穿行于他人的记忆，嗅见纸灰、桂香、窑烟……
+   你记录、显形、抉择——
+   却在终局得知：
+   **你并非物之灵，而是人不敢带过江的那部分自己。**
+- 名字，要写吗？
+   影子，能成光吗？
+- 在这场45分钟的湖湘幽梦中， **自我，是应该寻找，还是塑造？**
+
+### **项目特色：**
+
 - 🎨 基于湖湘文化的历史背景
 - 🤖 TripoAI AI生成3D模型
 - 🎮 Unity 3D游戏引擎
@@ -12,21 +29,23 @@ Ember's Chronicle 是一款以湖湘文化为题材的3D游戏，结合TripoAI A
 
 ---
 
-## 👥 团队成员
+## 👥 团队成员（6人）
 
 | 角色 | 姓名 | 职责 |
-|------|------|------|
+|:-----|:-----|:-----|
 | 后端/AI接口 | 小白 | 后端开发、TripoAI集成、API接口设计 |
 | Unity主程序 | 小明 | Unity开发、3D模型处理、前端交互 |
 | 叙事/关卡策划 | 阿# | 游戏剧本、关卡设计、Prompt工程 |
 | 数值/工具开发 | 大帅 | 数值平衡、工具开发、自动化脚本 |
 | PM/测试 | 小柏 | 项目管理、测试、文档管理 |
+| 内容/技术整合 | 阿超 | 视频剪辑、分支管理，模型优化 |
 
 ---
 
 ## 🛠️ 技术栈
 
 ### 后端技术栈
+
 - **框架**: Spring Boot 3.5.9
 - **Java版本**: JDK 17
 - **构建工具**: Maven 3.5.9
@@ -41,6 +60,7 @@ Ember's Chronicle 是一款以湖湘文化为题材的3D游戏，结合TripoAI A
 - **AI服务**: TripoAI SDK
 
 ### 前端技术栈
+
 - **游戏引擎**: Unity 6000.3.2f1（暂定，最终版本由小明决定）
 - **叙事引擎**: Ink Unity Integration
 - **输入系统**: Unity Input System 1.17.0
@@ -63,29 +83,81 @@ Ember's Chronicle 是一款以湖湘文化为题材的3D游戏，结合TripoAI A
 
 ```
 Ember_Chronicle/
-├── backend/                    # 后端项目
-│   └── yaoyan-backend/        # Spring Boot项目
+├── backend/            # 后端项目
+│   └── yaoyan-backend/     # Spring Boot项目
 │       ├── src/
 │       │   ├── main/
 │       │   │   ├── java/com/yaoyan/game/
-│       │   │   │   ├── common/          # 通用类（Result、ResultCode等）
-│       │   │   │   ├── config/          # 配置类
-│       │   │   │   ├── controller/      # 控制器层
-│       │   │   │   ├── service/         # 业务逻辑层
-│       │   │   │   ├── repository/      # 数据访问层
-│       │   │   │   ├── entity/          # 实体类
-│       │   │   │   ├── dto/             # 数据传输对象
-│       │   │   │   ├── exception/       # 异常处理
-│       │   │   │   └── util/            # 工具类
+│       │   │   │   ├── common/                  # 通用类（Result、ResultCode等）
+│       │   │   │   ├── config/                  # 配置类
+│       │   │   │   ├── controller/              # 控制器层
+│       │   │   │   ├── service/                 # 业务逻辑层
+│       │   │   │   ├── repository/              # 数据访问层
+│       │   │   │   ├── entity/                  # 实体类
+│       │   │   │   ├── dto/                     # 数据传输对象
+│       │   │   │   ├── exception/               # 异常处理
+│       │   │   │   └── util/                    # 工具类
 │       │   │   └── resources/
 │       │   │       ├── application.yml          # 主配置文件
 │       │   │       ├── application-dev.yml      # 开发环境配置
 │       │   │       └── application-prod.yml     # 生产环境配置
-│       │   └── test/              # 测试代码
-│       └── pom.xml               # Maven配置文件
-└── frontend/                   # 前端项目
-    └── Ember_Chronicle/        # Unity项目
-        ├── Assets/             # Unity资源
+│       │   └── test/                # 测试代码
+│       └── pom.xml              # Maven配置文件
+│
+└── frontend/           # 前端项目
+    └── Ember_Chronicle/    # Unity项目
+        ├── Assets/              # Unity资源
+        │   ├── Scripts/             # 所有脚本（C# + Ink）
+        │   │    ├── Story/                # 阿#负责：剧本主目录（放同名的 .ink + .json）
+        │   │    │    ├── chapters/             # 按“章节”组织
+        │   │    │    │    ├── ch1_······/
+        │   │    │    │    │        ├── ch1_······.ink
+        │   │    │    │    │        └── ch1_······.json
+        │   │    │    │    ├── ch2_······/
+        │   │    │    │    │        ├── ch2_······.ink
+        │   │    │    │    │        └── ch2_······.json
+        │   │    │    │    └── ······
+        │   │    │    └── common/               # 公共对话（如系统提示、通用 NPC）
+        │   │    │         └── ui_messages.ink
+        │   │    │
+        │   │    ├── Core/                 # 小明负责：核心系统（Game Manager, State Machine）
+        │   │    ├── UI/                   # 小明负责：界面逻辑
+        │   │    ├── AI/                   # 小明负责：对话系统加载器（读取 .json）
+        │   │    └── Utils/                # 小明/大帅负责：工具类
+        │   │
+        │   ├── Docs/                # 关卡/场景内容包括：布局、交互点、文化元素、氛围描述
+        │   │    ├── Levels/               # 关卡/场景设计文档（每个场景一个.md 文件）
+        │   │    │    ├── level_01_······.md
+        │   │    │    ├── level_02_······.md
+        │   │    │    └── ······
+        │   │    ├── Worldbuilding/                          # 全局设定
+        │   │    │    ├── lore_overview.md                   # 世界观总纲
+        │   │    │    ├── characters.md                      # 主要角色档案
+        │   │    │    ├── cultural_references.md             # 湖湘文化元素清单
+        │   │    │    └── timeline.md                        # 游戏内时间线
+        │   │    └── Narrative_Guidelines.md      # 叙事规范
+        │   │
+        │   ├── Prompts/             # 一个 .prompt 文件 ≈ 一个 3D 模型需求
+        │   │    ├── artifacts/            # 文物类 AI 提示词
+        │   │    │    ├── ······.prompt
+        │   │    │    └── ······.prompt
+        │   │    ├── characters/           # NPC 外观描述
+        │   │    │    ├── ······.prompt
+        │   │    │    └── ······.prompt
+        │   │    └── environments/         # 场景氛围/建筑细节
+        │   │         ├── ······.prompt
+        │   │         └── ······.prompt
+        │   │
+        │   ├── Scenes/                  # 小明负责：Unity 场景文件
+        │   ├── Models/                  # 小明负责：3D 模型（从 TripoAI 导入）
+        │   ├── Prefabs/                 # 小明负责：可交互预制体（交互逻辑）
+        │   ├── StreamingAssets/         # 小明负责：运行时原始数据（如 .json 副本）（Unity 会在需要时自动生成）
+        │   │
+        │   ├── Editor/         # 大帅负责：自动化工具（仅开发机）（自动化脚本）
+        │   │
+        │   ├── Plugins/               # ← 第三方插件（Unity会在需要时自动生成该文件夹）
+        │   └── Resources/             # ← 动态加载资源（音频、材质等）小明管理
+        │
         ├── Packages/           # Unity包
         ├── ProjectSettings/    # 项目设置
         └── UserSettings/       # 用户设置
@@ -338,59 +410,72 @@ Apache License 2.0
 
 ---
 
-## 🎯 开发路线图（38天开发周期）
+## 🗓️ 开发路线图（38天 · 成果导向型）
 
-### 第一阶段（Day 1-7）- 基础设施搭建 ⚡
-- [x] 项目初始化
-- [x] 统一响应格式
-- [x] 全局异常处理
-- [x] Swagger配置
-- [ ] 用户认证系统（JWT）
-- [ ] 跨域配置（CORS）
-- [ ] 请求日志拦截器
-- [ ] Redis配置完善
-- [ ] TripoAI Service封装
-- [ ] 基础数据表设计
+### 目标：在省赛截止前，交付一套可演示、可验证、有文化深度的湖湘数字叙事原型，包含：
 
-### 第二阶段（Day 8-22）- 核心功能开发 🚀
-- [ ] 用户管理模块（注册、登录、信息管理）
-- [ ] 角色管理模块（角色创建、属性配置）
-- [ ] 3D模型生成模块（TripoAI集成）
-- [ ] 任务管理模块（异步任务查询、状态更新）
-- [ ] 文件管理模块（文件上传、下载）
-- [ ] Unity HTTP客户端开发
-- [ ] API接口联调测试
+- 可交互的剧情片段（Ink → Unity）
+- 结构化关卡设计文档（Markdown）
+- 可复现的 AI 文物生成提示词库（Prompt）
 
-### 第三阶段（Day 23-32）- Unity集成与游戏逻辑 🎮
-- [ ] Unity项目配置（API地址、环境变量）
-- [ ] 3D模型加载与显示
-- [ ] 游戏逻辑对接（用户系统、角色系统）
-- [ ] UI界面开发（登录、角色创建、模型展示）
-- [ ] 数据持久化（本地存储）
-- [ ] 异常处理与错误提示
+### 原则：不做完整游戏，只做高价值、可展示、易评审的核心模块。
 
-### 第四阶段（Day 33-38）- 测试、优化与发布 🎯
-- [ ] 单元测试（核心业务逻辑）
-- [ ] 集成测试（前后端联调）
-- [ ] 性能优化（API响应、模型加载）
-- [ ] Bug修复与代码重构
-- [ ] 部署准备（生产环境配置）
-- [ ] 最终测试与验收
+### 阶段划分：
 
-### 📅 里程碑节点
-- **Day 7**: 基础设施完成，API接口可测试
-- **Day 15**: 核心后端功能完成，Unity可开始集成
-- **Day 25**: Unity集成完成，游戏基本可玩
-- **Day 35**: 测试完成，准备发布
-- **Day 38**: 项目交付
+#### Phase 1：策划定型（第1–5天）
 
-### ⚠️ 风险提示
-- TripoAI API调用可能存在延迟，需预留缓冲时间
-- Unity 3D模型加载性能需要提前测试
-- 前后端联调可能遇到兼容性问题，建议Day 15开始
-- 建议每周进行一次代码审查和进度评估
+ 核心任务：确定3个核心场景（湘江桥、岳麓书院、长沙窑）；编写全局设定（世界观、角色、叙事规范）；拆解每个场景的文物/NPC/互动点
+ 交付物：Docs/Worldbuilding/ 目录、Narrative_Guidelines.md、level_01~03.md
+ 负责人：阿#
+
+#### Phase 2：内容生产（第6–20天）
+
+ 核心任务：编写3段 Ink 剧情（每段约2分钟体验）；为每个文物/NPC撰写结构化 Prompt；导出对应 .json 文件
+ 交付物：Scripts/Story/chapters/、Prompts/artifacts/、Prompts/characters/
+ 负责人：阿#
+
+#### Phase 3：技术集成（第21–28天）
+
+ 核心任务：小明搭建3个基础场景（仅布局+摄像机）；集成 Ink 对话系统，加载 .json；导入 TripoAI 生成的文物模型（.glb）；实现“点击文物 → 播放剧情”
+ 交付物：Scenes/level_01~03.unity、Models/Artifacts/、Prefabs/interactive_artifact.prefab
+ 负责人：小明
+
+#### Phase 4：演示优化（第29–35天）
+
+ 核心任务：录制3段演示视频（含剧情+模型+文化解说）；生成腾讯文档作品包（含所有源文件链接）；编写 README 演示说明（如何运行/查看）
+ 交付物：更新后的 README.md、demo_video_*.mp4（可选）、腾讯文档链接
+ 负责人：全员（小柏统筹）
+
+#### Phase 5：封版提交（第36–38天）
+
+ 核心任务：冻结所有 .ink / .md / .prompt；验证 Unity 项目能独立运行（无需联网）；打包最终提交包（含 Git tag + 文档）
+ 交付物：Git Tag submission-v1、省赛提交压缩包
+ 负责人：小柏
+
+------
+
+## 🎯最终比赛成果清单：
+
+### 可运行 Unity 原型
+
+- 包含3个场景，每个场景可点击1–2个文物触发剧情
+- 使用真实 TripoAI 生成的湖湘文物模型（.glb）
+- 对话系统基于 .json，支持选项分支
+
+### 完整策划资产包（全部在 Git 中）
+
+- 剧本：Assets/Scripts/Story/（含 .ink 源码 + .json）
+- 设计文档：Assets/Docs/（含关卡、世界观、规范）
+- Prompt 库：Assets/Prompts/（英文、结构化、带注释）
+
+### 作品说明文档
+
+- README.md：含演示指引、技术栈、文化依据
+- 腾讯文档：汇总截图、视频、分工、创新点
+
+不交付：完整战斗系统、用户登录、后端 API、多结局等非核心功能。
 
 ---
 
-**最后更新**: 2025-01-XX
+**最后更新**: 2025-12-26
 **版本**: 0.0.1-SNAPSHOT
