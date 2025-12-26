@@ -48,8 +48,8 @@ Ember's Chronicle 是一款以湖湘文化为题材的3D游戏，结合TripoAI A
 
 - **框架**: Spring Boot 3.5.9
 - **Java版本**: JDK 17
-- **构建工具**: Maven 3.5.9
-- **数据库**: MySQL 8.0
+- **构建工具**: Maven 3.9.12
+- **数据库**: MySQL 8.0.34
 - **缓存**: Redis
 - **ORM**: Spring Data JPA
 - **API文档**: SpringDoc OpenAPI (Swagger)
@@ -170,8 +170,8 @@ Ember_Chronicle/
 ### 环境要求
 
 - JDK 17+
-- Maven 3.5.9+
-- MySQL 8.0+
+- Maven 3.9.12+
+- MySQL 8.0.34+
 - Redis 5.0+
 - Node.js 16+ (可选，用于前端工具)
 - Unity 6000.3.2f1+
@@ -406,7 +406,6 @@ Apache License 2.0
 
 - **项目负责人**: 小白
 - **邮箱**: 3284263390@qq.com
-- **GitHub**: https://github.com/GarryWhite109909/Ember-s-Chronicle
 
 ---
 
